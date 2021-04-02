@@ -1,5 +1,5 @@
 <launch>
-    <arg name="scan_topic" default="scan" />                  <!-- 根据自己发布scan名称进行修改 -->
+  
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen" clear_params="true">
         <param name="base_frame" value="base_footprint"/>     <!-- 根据自己的基座标系名称进行修改 -->
         <param name="odom_frame" value="odom"/>               <!-- 根据自己的里程计坐标系名称进行修改-->
