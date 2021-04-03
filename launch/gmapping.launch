@@ -1,14 +1,13 @@
 <launch>
     <arg name="scan_topic" default="/scan"/>
     <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
-        <param name="base_frame" value="base_footprint"/>               <!附属在移动机器人上的附属坐标系-->
-        <param name="map_frame" value="map"/>                           <!地图上的坐标系-->
-        <param name="odom_frame" value="odom"/>                         <!里程计上的坐标系-->
-        <param name="map_update_interval" value="2.0"/>                 <!更新地图的频率-->
-        <param name="maxRange" value="5.0"/>                            <!激光最大可测距离-->
-        <param name="maxUrange" value="4.5"/>                           <!激光最大可测距离-->
-        <param name="sigma" value="0.05"/>                              <!扫描匹配偏差-->
-        <param name="kernelSize" value="1"/>                            <!查找对应所用的内核大小-->
+        <param name="base_frame" value="base_footprint"/>              
+        <param name="map_frame" value="map"/>                          
+        <param name="odom_frame" value="odom"/>                         
+        <param name="maxRange" value="5.0"/>                          
+        <param name="maxUrange" value="4.5"/>                           
+        <param name="sigma" value="0.05"/>                             
+        <param name="kernelSize" value="1"/>                           
         <param name="lstep" value="0.05"/>
         <param name="astep" value="0.05"/>            
         <param name="iterations" value="5"/>
