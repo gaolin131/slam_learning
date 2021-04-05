@@ -5,9 +5,11 @@
   <arg name="planner"  default="" doc="opt: dwa, teb"/>
   <!-- robot with lidar -->
   <include file="$(find slam_learning)/launch/robot_lidar.launch"/>
+   <arg name="lidar_frame"            value="base_laser_link"/>
   </include>
   <!-- SLAM: Gmapping, Cartographer, Hector, Karto -->
   <include file="$(find slam_learning)/launch/$(arg slam_methods).launch">
+   <arg name="lidar_frame"            value="base_laser_link"/>
   </include>
   <!-- move_base -->
   <group unless="$(eval planner == '')">
