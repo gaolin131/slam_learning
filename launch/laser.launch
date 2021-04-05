@@ -1,7 +1,8 @@
 <launch>
     <arg name="base_type"       default="$(env BASE_TYPE)" />
     <arg name="base_frame"       default="/base_footprint" />    
-    <arg name="lidar_type"       default="$(env LIDAR_TYPE)" />   
+    <arg name="lidar_type"       default="$(env LIDAR_TYPE)" />  
+    <arg name="open_rviz" default="false"/>
     <arg name="lidar_frame" default="base_laser_link"/>  
     <arg name="planner"  default="" doc="opt: dwa, teb"/>
     <include file="$(find slam_learning)/launch/rplidar_ros/launch/$(arg lidar_type).launch">
@@ -14,5 +15,9 @@
     <include file="$(find robot_navigation)/launch/move_base.launch" unless="$(eval planner == '')">
         <arg name="planner"            value="$(arg planner)"/>
     </include>
-  </group>
+      </group>
+    <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find robot_navigation)/rviz/slam.rviz"/>
+    </group>
  </launch>
