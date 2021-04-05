@@ -9,7 +9,7 @@
   </include>
   <!-- SLAM: Gmapping, Cartographer, Hector, Karto -->
   <include file="$(find slam_learning)/launch/$(arg slam_methods).launch">
-   <arg name="lidar_frame"            value="base_laser_link"/>
+   <arg name="set_base_frame"        value="base_footprint"/>
   </include>
   <!-- move_base -->
   <group unless="$(eval planner == '')">
